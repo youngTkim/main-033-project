@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import TopInformationLi from "./TopInfo/TopInformationLi";
 import axios from "axios";
+import Logo from "../logo";
 
 interface Data {
   companyId: number | string;
@@ -61,7 +62,7 @@ export default function TopInformation() {
                 address,
                 information,
               });
-              console.log(res.data);
+              // console.log(res.data);
             })
             .catch((err) => console.log(err));
         } else {
@@ -99,8 +100,8 @@ export default function TopInformation() {
       {isModal && <Modal setData={setData} data={data} patchInfo={patchInfo} />}
       <article className="flex flex-col flex-wrap min-h-32 bg-white p-6 mb-5 rounded drop-shadow">
         <div className="flex justify-between items-center bg-stone-200 p-2 mb-3 rounded">
-          <span className="flex h-20 w-40 justify-center items-center p-1 border-black border-solid border rounded-sm">
-            이미지
+          <span className="flex h-20 w-40 justify-center items-center p-1 border-black border-solid border rounded-sm pointer-events-none">
+            <Logo />
           </span>
           {isCompany && (
             <button
